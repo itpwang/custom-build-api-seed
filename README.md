@@ -100,3 +100,6 @@ Instructions for Git Workflow
 6. Create Pull Request and send to reviewers
 
 7. Address reviewer comments and merge Pull Request to master 
+
+Added line to README.md. ------------------------------------------
+
