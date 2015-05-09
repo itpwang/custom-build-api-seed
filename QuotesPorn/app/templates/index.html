@@ -1,0 +1,68 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}List of Quotes from /r/QuotesPorn{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-inverse" role="navigation">
+        <div class="container">
+            <a class="navbar-brand" href="#">List of Quotes from /r/QuotesPorn</a>
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>Quotes Data</h1>
+        <table class="table table-hover">
+    <tr>
+        <th>Title</th>
+        <th></th>
+        <th>Author</th>
+        <th></th>
+        <th>Time Created(UTC)</th>
+        <th></th>
+        <th>Score</th>
+        <th></th>
+        <th>Upvotes</th>
+        <th></th>
+        <th>Downvotes</th>
+        <th></th>
+        <th>Number of Comments</th>
+        <th></th>
+        <th>Permalink(reddit.com)</th>
+        <th></th>
+        <th>Submitted URL</th>
+        <th></th>
+    </tr>
+    {% for quote in quotes %}
+    <tr>
+        <td>
+            {% set hl = quote.id <= highlight['min'] %}
+            {% if hl %}<b>{% endif %}
+            {{ quote.id }}
+            {% if hl %}</b>{% endif %}
+        </td>
+        <td></td>
+        
+        <td>{{ quote.title }}</td>
+        <td></td>
+        <td>{{ quote.author }}</td>
+        <td></td>
+        <td>{{ quote.createdUtc }}</td>
+        <td></td>
+        <td>{{ quote.score }}</td>
+        <td></td>
+        <td>{{ quote.ups }}</td>
+        <td></td>
+        <td>{{ quote.downs }}</td>
+        <td></td>
+        <td>{{ quote.num_comments }}</td>
+        <td></td>
+        <td>{{ quote.permalink }}</td>
+        <td></td>
+        <td>{{ quote.url }}</td>
+        <td></td>
+    </tr>
+    {% endfor %}
+        </table>
+    </div>
+{% endblock %}
